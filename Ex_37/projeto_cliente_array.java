@@ -12,6 +12,8 @@ public class projeto_cliente_array {
 		Scanner ler = new Scanner(System.in);
 		
 		ArrayList<cliente> listacliente = new ArrayList<>();
+		ArrayList<contabancaria> listacontabancaria = new ArrayList<>();
+		
 		char possuicontabancaria;
 		int opcao;
 		int id;
@@ -25,11 +27,11 @@ public class projeto_cliente_array {
 			System.out.printf("===>Sistema de cadastro de clientes<===\n\n");
 			
 			System.out.printf(	"1 - Incluir Cliente \n" +
-								"2 - Alteração de email\n" + 
+								"2 - AlteraÃ§Ã£o de email\n" + 
 								"3 - Excluir cliente\n" + 
 								"4 - Exibir cliente\n" + 
 								"5 - Sair\n\n");
-			System.out.printf("Digite a opção desejada: ");
+			System.out.printf("Digite a opÃ§Ã£o desejada: ");
 			opcao = ler.nextInt();
 			
 			if (opcao == 1) {
@@ -54,22 +56,20 @@ public class projeto_cliente_array {
 				possuicontabancaria = ler.next().charAt(0);
 				
 				if (possuicontabancaria == 'S') {
+					contabancaria b = new contabancaria();
 					
-					contabancaria ct = new contabancaria();
 					
 					System.out.printf("digite a agencia  do Conta");
-					ct.agencia = ler.next();
+					b.agencia = ler.next();
 				
 					System.out.printf("digite o numero do conta");
-					ct.numero = ler.next();
+					b.numero = ler.next();
 				
 					System.out.printf("digite o saldo do conta");
-					ct.saldo = ler.nextDouble();	
+					b.saldo = ler.nextDouble();
 					
-				
+					listacontabancaria.add(b);
 					
-
-					conta = ct;
 					
 				}
 					else {
@@ -79,7 +79,7 @@ public class projeto_cliente_array {
 					listacliente.add(c);
 					
 					
-					System.out.printf("Cliente incluído com sucesso!");
+					System.out.printf("Cliente incluÃ­do com sucesso!");
 	                System.in.read();
 			
 			}
@@ -116,7 +116,10 @@ public class projeto_cliente_array {
 				 }
 			else if (opcao == 4) {
 				for(cliente a: listacliente) {
-					System.out.printf("ID: %d - Nome: %s - Idade: %s - conta:%s", a.getId(), a.getNome(), a.getIdade(), a.exibirdadosconta());
+					System.out.printf("ID: %d - Nome: %s - Idade: %s\n", a.getId(), a.getNome(), a.getIdade());
+					for(contabancaria b: listacontabancaria) {
+						System.out.printf("conta: %s %s\n", b.agencia, b.numero);
+					}
 				}
 				
 				System.in.read();
@@ -126,8 +129,3 @@ public class projeto_cliente_array {
 		
 		
 	}}
-		
-		
-		
-	
-
