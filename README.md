@@ -1,2 +1,2 @@
-# DDD
+# JAVA
 Checkpoint 2 
